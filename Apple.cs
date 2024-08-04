@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Apple : MonoBehaviour
 {
+
+//hello
     private SpriteRenderer sr;
     private CircleCollider2D circle;
 
