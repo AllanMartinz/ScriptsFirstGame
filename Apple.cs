@@ -11,7 +11,6 @@ public class Apple : MonoBehaviour
     public GameObject collected;
     public int score;
 
-    // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -20,15 +19,23 @@ public class Apple : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collider)
     {
+        // ao collidir com a tag Player 
         if (collider.gameObject.tag == "Player")
         {
+            // ira desativar o sprite da Apple
             sr.enabled = false;
+            // desativar a hitbox 
             circle.enabled = false;
+            // ativar o collected
             collected.SetActive(true);
 
-            GameController.instance.totalScore += score; // ao colidir na apple vai adicionar mais score e vai ficar na GameController
-            GameController.instance.UpdateScoreText(); // chamar o metodo public de GameController
 
+            // ao colidir na apple vai adicionar mais score e vai ficar na GameController
+            GameController.instance.totalScore += score;
+            // chamar o metodo public de GameController
+            GameController.instance.UpdateScoreText();
+
+            // destruir o gameObject / Apple apos 0.4 segundos
             Destroy(gameObject, 0.4f);
         }
     }

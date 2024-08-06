@@ -9,44 +9,53 @@ public class GameController : MonoBehaviour
 {
     //!nota: animacao do hit | transicao do game over 
 
+    //vars
     public int totalScore;
     public Text scoreText;
 
     public static GameController instance;
 
+    // atribuir os GameObject
     public GameObject GameOver;
-
     public GameObject StartTranssition;
     public GameObject EndTranssition;
 
 
-    
+
 
     void Start()
     {
-        instance = this; // permite usar o script inteiro pelo instance e posso acesar o q eu quiser dele que nao seja priv
+        // permite usar o script inteiro pelo instance e posso acesar o q eu quiser dele que nao seja priv
+        instance = this;
+        // ativar a StartTransition ao jogo Iniciar 
         StartTranssition.SetActive(true);
-        
+
     }
 
     void DisStartTrans()
     {
+        //apos o Start() desativar a StartTransition
         StartTranssition.SetActive(false);
 
     }
 
-    public void UpdateScoreText() // emcapsulamnto public para o Apple poder acessar
+    // encapsulamnto public para o Apple poder acessar
+    public void UpdateScoreText()
     {
-        scoreText.text = totalScore.ToString(); // transforma o valor int para string
+        // transforma o valor int para string
+        scoreText.text = totalScore.ToString();
     }
 
-    public void ShowGameOver() 
+    // public para o Player| Ativar GameOverPanel
+    public void ShowGameOver()
     {
         GameOver.SetActive(true);
-    } 
+    }
 
+    // public para o button do game over| dar o restart no game
     public void RestartGame(string lvlName)
     {
+        //carregar lvlName atribuida
         SceneManager.LoadScene(lvlName);
     }
 }
