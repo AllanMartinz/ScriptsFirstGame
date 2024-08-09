@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    //gae teste
+    
     //[SerializeField]// caso se nao aparecer o campo para atruibuir
     public float Speed;// contolar o speed na unity
     public float JumpForce;// controlar a forca do pulo
@@ -71,7 +71,7 @@ public class Player : MonoBehaviour
         // se a tecla espaco for apertada
         if (Input.GetButtonDown("Jump"))
         {
-            // !nota:se o player nao estiver pulando ao clicar na tecla space ira pular ¨\_(OuO)_/¨ eu acho 
+            // !nota:se o player nao estiver pulando ao clicar na tecla space ira pular Â¨\_(OuO)_/Â¨ eu acho 
             if (!IsJumping)
             {
                 // ira adicionar forca ao vetor y com o tipo de forca Impulso
@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
         //se ouver colisao no gameObject.layer, ele sera atribuida a layer 6: ground na unity
         if (collision.gameObject.layer == 6)
         {
-            //ele nao ta pulando é false
+            //ele nao ta pulando Ã© false
             IsJumping = false;
             // animacao
             Ani.SetBool("jump", false);
@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
         //atribuir a layer
         if (collision.gameObject.layer == 6)
         {
-            //ele ta pulando é true
+            //ele ta pulando Ã© true
             IsJumping = true;
         }
     }
