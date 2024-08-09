@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //gae teste
     //[SerializeField]// caso se nao aparecer o campo para atruibuir
     public float Speed;// contolar o speed na unity
     public float JumpForce;// controlar a forca do pulo
