@@ -120,6 +120,12 @@ public class Player : MonoBehaviour
             // desturi o player
             Destroy(gameObject);
         }
+
+        if (collision.gameObject.tag == "saw")
+        {
+            GameController.instance.ShowGameOver();
+            Destroy(gameObject);
+        }
     }
 
     //esse metodo quando o "Player" parar de tocar alguma coisa

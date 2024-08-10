@@ -16,12 +16,6 @@ public class Trampoline : MonoBehaviour
         Ani = GetComponent<Animator>();
     }
 
-    private void Update()
-    {
-       // Ani.SetBool("isjump", false);
-    }
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // !nota: a collisao vai retornar ao player
