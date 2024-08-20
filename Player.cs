@@ -9,12 +9,14 @@ public class Player : MonoBehaviour
     public float Speed;// contolar o speed na unity
     public float JumpForce;// controlar a forca do pulo
     public float DoubleJumpForce;
+    public Collider2D damageColl;
 
     public bool IsJumping;// bool do pulo --> true / false
     public bool DoubleJump;// bool do pulo duplo --> true / false
 
     private Animator Ani;
     private Rigidbody2D Rig;
+
 
     // deu o start no game vai rodar essa linha uma vez
     void Start()
@@ -122,6 +124,12 @@ public class Player : MonoBehaviour
         }
 
         if (collision.gameObject.tag == "saw")
+        {
+            GameController.instance.ShowGameOver();
+            Destroy(gameObject);
+        }
+
+        if (collision.collider == damageColl)
         {
             GameController.instance.ShowGameOver();
             Destroy(gameObject);
