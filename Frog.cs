@@ -10,7 +10,10 @@ public class Frog : MonoBehaviour
 
     public GameObject pointA;
     public GameObject pointB;
+    public GameObject Froggres;
     private Rigidbody2D rb;
+    private SpriteRenderer sr;
+    private BoxCollider2D bc;
     private Animator anim;
     private Transform currentPoint;
 
@@ -19,6 +22,8 @@ public class Frog : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        sr = GetComponent<SpriteRenderer>();
+        bc = GetComponent<BoxCollider2D>();
 
         currentPoint = pointB.transform;
     }
@@ -63,7 +68,11 @@ public class Frog : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * 15, ForceMode2D.Impulse);
+            Destroy(Froggres, 0.41f);
+            bc.enabled = false;
+            anim.SetBool("hit", true);
+            speed = 0;
         }
     }
 
