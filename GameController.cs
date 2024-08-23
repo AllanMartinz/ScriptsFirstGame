@@ -55,7 +55,9 @@ public class GameController : MonoBehaviour
     // public para o button do game over| dar o restart no game
     public void RestartGame(string lvlName)
     {
-        //carregar lvlName atribuida
-        SceneManager.LoadScene(lvlName);
+
+            //carregar lvlName atribuida
+            SceneManager.LoadScene(lvlName);
+        
     }
 }
