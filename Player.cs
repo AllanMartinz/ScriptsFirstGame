@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private Animator Ani;
     private Rigidbody2D Rig;
 
+    private bool isBlowing;
 
     // deu o start no game vai rodar essa linha uma vez
     void Start()
@@ -70,8 +71,8 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        // se a tecla espaco for apertada
-        if (Input.GetButtonDown("Jump"))
+        // se a tecla espaco for apertada e nao tiver isBlowing
+        if (Input.GetButtonDown("Jump") && !isBlowing)
         {
             // !nota:se o player nao estiver pulando ao clicar na tecla space ira pular ¨\_(OuO)_/¨ eu acho 
             if (!IsJumping)
@@ -144,6 +145,26 @@ public class Player : MonoBehaviour
         {
             //ele ta pulando é true
             IsJumping = true;
+        }
+    }
+
+    //se ele continuar colidindo no trigeer
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Fan")
+        {
+            isBlowing = true;
+
+        }
+    }
+
+    // se sair do trigger
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Fan")
+        {
+            isBlowing = false;
+
         }
     }
 }
